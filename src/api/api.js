@@ -10,3 +10,6 @@ export const axios = axiosLib.create({
     Accept: "application/json",
   },
 })
+
+export const getSuggestions = (numbers: string) =>
+  axios.get(`/suggestions?numbers=${numbers}`)

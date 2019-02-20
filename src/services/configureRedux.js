@@ -8,10 +8,10 @@ import storage from "redux-persist/lib/storage"
 
 import {
   reducer as keypadReducer,
-  // epics as keypadEpics,
+  epics as keypadEpics,
 } from "../redux/KeypadRedux"
 
-const epics = []
+const epics = [...keypadEpics]
 
 const blacklistFilter = createBlacklistFilter("auth", ["loading"])
 

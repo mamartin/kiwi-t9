@@ -9,6 +9,7 @@ const styles = {
     borderRadius: 60,
     height: 60,
     justifyContent: "center",
+    width: "33%",
   },
   text: {
     color: "white",

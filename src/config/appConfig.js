@@ -1,3 +1,3 @@
 export default {
-  baseUrl: "@TODO",
+  baseUrl: "http://localhost:8000",
 }

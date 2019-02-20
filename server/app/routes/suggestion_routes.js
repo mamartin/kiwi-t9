@@ -1,4 +1,4 @@
-const fs = require("fs");
+const fs = require("fs")
 
 const keypad = {
   2: "(a|b|c)",
@@ -8,37 +8,38 @@ const keypad = {
   6: "(m|n|o)",
   7: "(p|q|r|s)",
   8: "(t|u|v)",
-  9: "(w|x|y|z)"
-};
+  9: "(w|x|y|z)",
+}
 
 module.exports = function(app) {
   app.get("/suggestions", (req, res) => {
-    if (!req.body.numbers) {
-      return res.status(400).send("Numbers is a required parameter.");
+    const numbers = req.query.numbers
+
+    if (!numbers) {
+      return res.status(400).send("Numbers is a required parameter.")
     }
 
-    const numbers = req.body.numbers;
     // @TODO validate
 
     const allWords = fs
       .readFileSync("./app/wordlists/en.txt", "utf8")
-      .split("\n");
-    const words = [];
+      .split("\n")
+    const words = []
 
-    let wordPattern = "^";
+    let wordPattern = "^"
 
     numbers.split("").forEach(number => {
-      wordPattern += keypad[number];
-    });
+      wordPattern += keypad[number]
+    })
 
-    wordPattern += "$";
+    wordPattern += "$"
 
     allWords.forEach(word => {
       if (RegExp(wordPattern).test(word)) {
-        words.push(word);
+        words.push(word)
       }
-    });
+    })
 
-    res.send({ numbers: req.body.numbers, words });
-  });
-};
+    res.send({ numbers: req.body.numbers, words })
+  })
+}
