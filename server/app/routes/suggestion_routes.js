@@ -32,7 +32,7 @@ module.exports = function(app) {
       wordPattern += keypad[number]
     })
 
-    wordPattern += "$"
+    wordPattern += "$" // @TODO add as a param
 
     allWords.forEach(word => {
       if (RegExp(wordPattern).test(word)) {

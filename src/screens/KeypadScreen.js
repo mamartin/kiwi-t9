@@ -1,15 +1,15 @@
 // @flow
 import React from "react"
-import { SafeAreaView, StyleSheet, TextInput, View } from "react-native"
+import { SafeAreaView, StyleSheet, TextInput, Text } from "react-native"
 
 // external libs
 import { connect } from "react-redux"
 
 // components
-import { Button } from "../components"
+import { Keypad } from "../components"
 
 // actions
-import { onButtonPressed, onGetSuggestionsRequest } from "../redux/KeypadRedux"
+import { onGetSuggestionsRequest } from "../redux/KeypadRedux"
 
 const styles = StyleSheet.create({
   container: {
@@ -19,9 +19,9 @@ const styles = StyleSheet.create({
 })
 
 type KeypadScreenProps = {
-  onButtonPressed: string => null,
   onGetSuggestionsRequest: string => null,
   numbers: string,
+  suggestedWords: Array<string>,
 }
 
 type KeypadScreenState = {}
@@ -34,8 +34,13 @@ class KeypadScreen extends React.PureComponent<
     header: null,
   })
 
+  handleKeypadChanged = numbers => {
+    const { onGetSuggestionsRequest } = this.props
+    onGetSuggestionsRequest(numbers)
+  }
+
   render() {
-    const { onButtonPressed, numbers, onGetSuggestionsRequest } = this.props
+    const { numbers, suggestedWords } = this.props
     return (
       <SafeAreaView style={styles.container}>
         <TextInput
@@ -43,17 +48,10 @@ class KeypadScreen extends React.PureComponent<
           onChangeText={() => null}
           value={numbers}
         />
-
-        <View style={{ flexDirection: "row", flexWrap: "wrap" }}>
-          <Button onPress={() => onButtonPressed("1")}>abc</Button>
-          <Button onPress={() => onGetSuggestionsRequest(numbers)}>def</Button>
-          <Button>ghi</Button>
-          <Button>jkl</Button>
-          <Button>mno</Button>
-          <Button>pqrs</Button>
-          <Button>tuv</Button>
-          <Button>wxyz</Button>
-        </View>
+        {suggestedWords.map(word => (
+          <Text key={word}>{word}</Text>
+        ))}
+        <Keypad onChange={this.handleKeypadChanged} />
       </SafeAreaView>
     )
   }
@@ -61,10 +59,10 @@ class KeypadScreen extends React.PureComponent<
 
 const mapStateToProps = state => ({
   numbers: state.keypad.numbers,
+  suggestedWords: state.keypad.suggestedWords,
 })
 
 const mapDispatchToProps = {
-  onButtonPressed,
   onGetSuggestionsRequest,
 }
 

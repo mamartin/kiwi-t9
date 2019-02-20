@@ -18,17 +18,15 @@ exports[`Button component renders with default props 1`] = `
       "height": 60,
       "justifyContent": "center",
       "opacity": 1,
+      "width": "33%",
     }
   }
 >
   <Text
     style={
-      Array [
-        Object {
-          "color": "white",
-        },
-        Object {},
-      ]
+      Object {
+        "color": "white",
+      }
     }
   >
     Button

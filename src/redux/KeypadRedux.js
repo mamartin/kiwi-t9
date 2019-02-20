@@ -8,41 +8,42 @@ import { getSuggestions } from "../api/api"
 export const initialState = {
   loading: false,
   error: null,
-  numbers: "",
+  suggestedWords: [],
 }
-
-export const onButtonPressed = number => ({
-  type: "ON_BUTTON_PRESSED",
-  number,
-})
 
 export const onGetSuggestionsRequest = numbers => ({
   type: "ON_GET_SUGGESTIONS_REQUEST",
   numbers,
 })
 
-export const onGetSuggestionsSuccess = words => ({
+export const onGetSuggestionsSuccess = suggestedWords => ({
   type: "ON_GET_SUGGESTIONS_SUCCESS",
-  words,
+  suggestedWords,
+})
+
+export const onGetSuggestionsFail = error => ({
+  type: "ON_GET_SUGGESTIONS_FAIL",
+  error,
 })
 
 export const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case "ON_BUTTON_PRESSED":
-      return {
-        ...state,
-        numbers: `${state.numbers}${action.number}`,
-      }
     case "ON_GET_SUGGESTION_REQUEST":
       return {
         ...state,
         loading: true,
       }
-    case "ON_GET_SUGGESTION_SUCCESS":
+    case "ON_GET_SUGGESTIONS_SUCCESS":
       return {
         ...state,
         loading: false,
-        words: action.words,
+        suggestedWords: action.suggestedWords,
+      }
+    case "ON_GET_SUGGESTIONS_FAIL":
+      return {
+        ...state,
+        loading: false,
+        error: action.error,
       }
     default:
       return state
@@ -55,13 +56,9 @@ const suggestionsEpic = action$ =>
     switchMap(action =>
       from(getSuggestions(action.numbers)).pipe(
         flatMap(response => {
-          return from([onGetSuggestionsSuccess(response.data)])
+          return from([onGetSuggestionsSuccess(response.data.words)])
         }),
-        catchError(e =>
-          from([
-            // onSuggestionsFail(e),
-          ]),
-        ),
+        catchError(e => from([onGetSuggestionsFail(e)])),
       ),
     ),
   )
