@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Suggestion component renders with default props 1`] = `
+<View
+  style={
+    Object {
+      "paddingRight": 30,
+    }
+  }
+>
+  <Text
+    style={
+      Object {
+        "fontSize": 30,
+      }
+    }
+  >
+    Hello
+  </Text>
+</View>
+`;

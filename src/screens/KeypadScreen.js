@@ -1,18 +1,12 @@
 // @flow
 import React from "react"
-import {
-  SafeAreaView,
-  StyleSheet,
-  TextInput,
-  Text,
-  FlatList,
-} from "react-native"
+import { SafeAreaView, StyleSheet, TextInput, FlatList } from "react-native"
 
 // external libs
 import { connect } from "react-redux"
 
 // components
-import { Keypad } from "../components"
+import { Keypad, Suggestion } from "../components"
 
 // actions
 import { onGetSuggestionsRequest } from "../redux/KeypadRedux"
@@ -45,6 +39,10 @@ class KeypadScreen extends React.PureComponent<
     onGetSuggestionsRequest(numbers)
   }
 
+  keyExtractor = word => word
+
+  renderSuggestion = suggestion => <Suggestion word={suggestion.item} />
+
   render() {
     const { numbers, suggestedWords } = this.props
     return (
@@ -55,10 +53,9 @@ class KeypadScreen extends React.PureComponent<
           value={numbers}
         />
         <FlatList
-          data={suggestedWords.map(word => ({
-            key: word,
-          }))}
-          renderItem={({ item }) => <Text>{item.key}</Text>}
+          data={suggestedWords}
+          renderItem={this.renderSuggestion}
+          keyExtractor={this.keyExtractor}
           horizontal
         />
         <Keypad onChange={this.handleKeypadChanged} />
