@@ -13,15 +13,25 @@ exports[`Button component renders with default props 1`] = `
   style={
     Object {
       "alignItems": "center",
-      "backgroundColor": "grey",
-      "borderRadius": 60,
+      "backgroundColor": "rgb(115,115,115)",
+      "borderRadius": 15,
       "height": 60,
       "justifyContent": "center",
+      "margin": 3,
       "opacity": 1,
-      "width": "33%",
+      "width": "30%",
     }
   }
 >
+  <Text
+    style={
+      Object {
+        "color": "white",
+        "fontSize": 20,
+        "fontWeight": "bold",
+      }
+    }
+  />
   <Text
     style={
       Object {

@@ -9,6 +9,7 @@ const styles = {
   keypadWrapper: {
     flexDirection: "row",
     flexWrap: "wrap",
+    justifyContent: "center",
   },
 }
 
@@ -30,6 +31,9 @@ const keypad = [
   { number: "7", letters: "pqrs" },
   { number: "8", letters: "tuv" },
   { number: "9", letters: "vwxy" },
+  { number: "*", letters: "" },
+  { number: "0", letters: "" },
+  { number: "#", letters: "" },
 ]
 
 export default class Keypad extends React.PureComponent<
@@ -51,13 +55,13 @@ export default class Keypad extends React.PureComponent<
   }
 
   render() {
-    // const { onPress } = this.props
     return (
       <View style={styles.keypadWrapper}>
         {keypad.map(button => (
           <Button
             key={button.number}
             onPress={() => this.handleButtonPressed(button.number)}
+            number={button.number}
           >
             {button.letters}
           </Button>

@@ -6,6 +6,7 @@ exports[`Keypad component renders with default props 1`] = `
     Object {
       "flexDirection": "row",
       "flexWrap": "wrap",
+      "justifyContent": "center",
     }
   }
 >
@@ -21,15 +22,27 @@ exports[`Keypad component renders with default props 1`] = `
     style={
       Object {
         "alignItems": "center",
-        "backgroundColor": "grey",
-        "borderRadius": 60,
+        "backgroundColor": "rgb(115,115,115)",
+        "borderRadius": 15,
         "height": 60,
         "justifyContent": "center",
+        "margin": 3,
         "opacity": 1,
-        "width": "33%",
+        "width": "30%",
       }
     }
   >
+    <Text
+      style={
+        Object {
+          "color": "white",
+          "fontSize": 20,
+          "fontWeight": "bold",
+        }
+      }
+    >
+      1
+    </Text>
     <Text
       style={
         Object {
@@ -52,15 +65,27 @@ exports[`Keypad component renders with default props 1`] = `
     style={
       Object {
         "alignItems": "center",
-        "backgroundColor": "grey",
-        "borderRadius": 60,
+        "backgroundColor": "rgb(115,115,115)",
+        "borderRadius": 15,
         "height": 60,
         "justifyContent": "center",
+        "margin": 3,
         "opacity": 1,
-        "width": "33%",
+        "width": "30%",
       }
     }
   >
+    <Text
+      style={
+        Object {
+          "color": "white",
+          "fontSize": 20,
+          "fontWeight": "bold",
+        }
+      }
+    >
+      2
+    </Text>
     <Text
       style={
         Object {
@@ -83,15 +108,27 @@ exports[`Keypad component renders with default props 1`] = `
     style={
       Object {
         "alignItems": "center",
-        "backgroundColor": "grey",
-        "borderRadius": 60,
+        "backgroundColor": "rgb(115,115,115)",
+        "borderRadius": 15,
         "height": 60,
         "justifyContent": "center",
+        "margin": 3,
         "opacity": 1,
-        "width": "33%",
+        "width": "30%",
       }
     }
   >
+    <Text
+      style={
+        Object {
+          "color": "white",
+          "fontSize": 20,
+          "fontWeight": "bold",
+        }
+      }
+    >
+      3
+    </Text>
     <Text
       style={
         Object {
@@ -114,15 +151,27 @@ exports[`Keypad component renders with default props 1`] = `
     style={
       Object {
         "alignItems": "center",
-        "backgroundColor": "grey",
-        "borderRadius": 60,
+        "backgroundColor": "rgb(115,115,115)",
+        "borderRadius": 15,
         "height": 60,
         "justifyContent": "center",
+        "margin": 3,
         "opacity": 1,
-        "width": "33%",
+        "width": "30%",
       }
     }
   >
+    <Text
+      style={
+        Object {
+          "color": "white",
+          "fontSize": 20,
+          "fontWeight": "bold",
+        }
+      }
+    >
+      4
+    </Text>
     <Text
       style={
         Object {
@@ -145,15 +194,27 @@ exports[`Keypad component renders with default props 1`] = `
     style={
       Object {
         "alignItems": "center",
-        "backgroundColor": "grey",
-        "borderRadius": 60,
+        "backgroundColor": "rgb(115,115,115)",
+        "borderRadius": 15,
         "height": 60,
         "justifyContent": "center",
+        "margin": 3,
         "opacity": 1,
-        "width": "33%",
+        "width": "30%",
       }
     }
   >
+    <Text
+      style={
+        Object {
+          "color": "white",
+          "fontSize": 20,
+          "fontWeight": "bold",
+        }
+      }
+    >
+      5
+    </Text>
     <Text
       style={
         Object {
@@ -176,15 +237,27 @@ exports[`Keypad component renders with default props 1`] = `
     style={
       Object {
         "alignItems": "center",
-        "backgroundColor": "grey",
-        "borderRadius": 60,
+        "backgroundColor": "rgb(115,115,115)",
+        "borderRadius": 15,
         "height": 60,
         "justifyContent": "center",
+        "margin": 3,
         "opacity": 1,
-        "width": "33%",
+        "width": "30%",
       }
     }
   >
+    <Text
+      style={
+        Object {
+          "color": "white",
+          "fontSize": 20,
+          "fontWeight": "bold",
+        }
+      }
+    >
+      6
+    </Text>
     <Text
       style={
         Object {
@@ -207,15 +280,27 @@ exports[`Keypad component renders with default props 1`] = `
     style={
       Object {
         "alignItems": "center",
-        "backgroundColor": "grey",
-        "borderRadius": 60,
+        "backgroundColor": "rgb(115,115,115)",
+        "borderRadius": 15,
         "height": 60,
         "justifyContent": "center",
+        "margin": 3,
         "opacity": 1,
-        "width": "33%",
+        "width": "30%",
       }
     }
   >
+    <Text
+      style={
+        Object {
+          "color": "white",
+          "fontSize": 20,
+          "fontWeight": "bold",
+        }
+      }
+    >
+      7
+    </Text>
     <Text
       style={
         Object {
@@ -238,15 +323,27 @@ exports[`Keypad component renders with default props 1`] = `
     style={
       Object {
         "alignItems": "center",
-        "backgroundColor": "grey",
-        "borderRadius": 60,
+        "backgroundColor": "rgb(115,115,115)",
+        "borderRadius": 15,
         "height": 60,
         "justifyContent": "center",
+        "margin": 3,
         "opacity": 1,
-        "width": "33%",
+        "width": "30%",
       }
     }
   >
+    <Text
+      style={
+        Object {
+          "color": "white",
+          "fontSize": 20,
+          "fontWeight": "bold",
+        }
+      }
+    >
+      8
+    </Text>
     <Text
       style={
         Object {
@@ -269,15 +366,27 @@ exports[`Keypad component renders with default props 1`] = `
     style={
       Object {
         "alignItems": "center",
-        "backgroundColor": "grey",
-        "borderRadius": 60,
+        "backgroundColor": "rgb(115,115,115)",
+        "borderRadius": 15,
         "height": 60,
         "justifyContent": "center",
+        "margin": 3,
         "opacity": 1,
-        "width": "33%",
+        "width": "30%",
       }
     }
   >
+    <Text
+      style={
+        Object {
+          "color": "white",
+          "fontSize": 20,
+          "fontWeight": "bold",
+        }
+      }
+    >
+      9
+    </Text>
     <Text
       style={
         Object {
@@ -286,6 +395,135 @@ exports[`Keypad component renders with default props 1`] = `
       }
     >
       vwxy
+    </Text>
+  </View>
+  <View
+    accessible={true}
+    isTVSelectable={true}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "rgb(115,115,115)",
+        "borderRadius": 15,
+        "height": 60,
+        "justifyContent": "center",
+        "margin": 3,
+        "opacity": 1,
+        "width": "30%",
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "white",
+          "fontSize": 20,
+          "fontWeight": "bold",
+        }
+      }
+    >
+      *
+    </Text>
+    <Text
+      style={
+        Object {
+          "color": "white",
+        }
+      }
+    >
+      
+    </Text>
+  </View>
+  <View
+    accessible={true}
+    isTVSelectable={true}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "rgb(115,115,115)",
+        "borderRadius": 15,
+        "height": 60,
+        "justifyContent": "center",
+        "margin": 3,
+        "opacity": 1,
+        "width": "30%",
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "white",
+          "fontSize": 20,
+          "fontWeight": "bold",
+        }
+      }
+    >
+      0
+    </Text>
+    <Text
+      style={
+        Object {
+          "color": "white",
+        }
+      }
+    >
+      
+    </Text>
+  </View>
+  <View
+    accessible={true}
+    isTVSelectable={true}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "rgb(115,115,115)",
+        "borderRadius": 15,
+        "height": 60,
+        "justifyContent": "center",
+        "margin": 3,
+        "opacity": 1,
+        "width": "30%",
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "white",
+          "fontSize": 20,
+          "fontWeight": "bold",
+        }
+      }
+    >
+      #
+    </Text>
+    <Text
+      style={
+        Object {
+          "color": "white",
+        }
+      }
+    >
+      
     </Text>
   </View>
 </View>
