@@ -1,6 +1,12 @@
 // @flow
 import React from "react"
-import { SafeAreaView, StyleSheet, TextInput, Text } from "react-native"
+import {
+  SafeAreaView,
+  StyleSheet,
+  TextInput,
+  Text,
+  FlatList,
+} from "react-native"
 
 // external libs
 import { connect } from "react-redux"
@@ -48,9 +54,13 @@ class KeypadScreen extends React.PureComponent<
           onChangeText={() => null}
           value={numbers}
         />
-        {suggestedWords.map(word => (
-          <Text key={word}>{word}</Text>
-        ))}
+        <FlatList
+          data={suggestedWords.map(word => ({
+            key: word,
+          }))}
+          renderItem={({ item }) => <Text>{item.key}</Text>}
+          horizontal
+        />
         <Keypad onChange={this.handleKeypadChanged} />
       </SafeAreaView>
     )
