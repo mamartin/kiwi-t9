@@ -17,7 +17,7 @@ const styles = {
 
 type SuggestionProps = {|
   word: string,
-  onPress: string => null,
+  onPress: (?string) => null,
 |}
 
 export default class Suggestion extends React.PureComponent<SuggestionProps> {
@@ -25,7 +25,11 @@ export default class Suggestion extends React.PureComponent<SuggestionProps> {
     const { word, onPress } = this.props
     return (
       <TouchableOpacity
-        onPress={() => onPress(word)}
+        onPress={() => {
+          if (typeof onPress === "function") {
+            onPress(word)
+          }
+        }}
         style={styles.suggestionWrapper}
       >
         <Text style={styles.text}>{word}</Text>

@@ -1,6 +1,13 @@
 // @flow
 import React from "react"
-import { SafeAreaView, StyleSheet, FlatList, View, Text } from "react-native"
+import {
+  SafeAreaView,
+  StyleSheet,
+  FlatList,
+  View,
+  Text,
+  ScrollView,
+} from "react-native"
 
 // external libs
 import { connect } from "react-redux"
@@ -10,6 +17,8 @@ import { Keypad, Suggestion } from "../components"
 
 // actions
 import { onGetSuggestionsRequest } from "../redux/KeypadRedux"
+
+// styles
 import Colors from "../themes/Colors"
 
 const styles = StyleSheet.create({
@@ -23,6 +32,17 @@ const styles = StyleSheet.create({
     height: 60,
     backgroundColor: Colors.primary,
     paddingLeft: 20,
+    margin: 10,
+  },
+  messageWrapper: {
+    flex: 1,
+    marginHorizontal: 10,
+    padding: 15,
+    backgroundColor: "rgb(230,230,230)",
+    borderRadius: 10,
+  },
+  messageText: {
+    fontSize: 20,
   },
 })
 
@@ -68,9 +88,9 @@ class KeypadScreen extends React.PureComponent<
     const { message } = this.state
     return (
       <SafeAreaView style={styles.container}>
-        <View>
-          <Text>{message}</Text>
-        </View>
+        <ScrollView style={styles.messageWrapper}>
+          <Text style={styles.messageText}>{message}</Text>
+        </ScrollView>
         <View style={styles.suggestionsWrapper}>
           <FlatList
             data={suggestedWords}
