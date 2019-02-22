@@ -437,7 +437,7 @@ exports[`Keypad component renders with default props 1`] = `
         }
       }
     >
-      
+      DELETE
     </Text>
   </View>
   <View
@@ -480,7 +480,7 @@ exports[`Keypad component renders with default props 1`] = `
         }
       }
     >
-      
+      REAL
     </Text>
   </View>
   <View
@@ -523,7 +523,7 @@ exports[`Keypad component renders with default props 1`] = `
         }
       }
     >
-      
+      RESET
     </Text>
   </View>
 </View>

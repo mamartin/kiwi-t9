@@ -1,6 +1,6 @@
 // @flow
 import React from "react"
-import { View, Text } from "react-native"
+import { TouchableOpacity, Text } from "react-native"
 
 const styles = {
   suggestionWrapper: {
@@ -17,15 +17,19 @@ const styles = {
 
 type SuggestionProps = {|
   word: string,
+  onPress: string => null,
 |}
 
 export default class Suggestion extends React.PureComponent<SuggestionProps> {
   render() {
-    const { word } = this.props
+    const { word, onPress } = this.props
     return (
-      <View style={styles.suggestionWrapper}>
+      <TouchableOpacity
+        onPress={() => onPress(word)}
+        style={styles.suggestionWrapper}
+      >
         <Text style={styles.text}>{word}</Text>
-      </View>
+      </TouchableOpacity>
     )
   }
 }

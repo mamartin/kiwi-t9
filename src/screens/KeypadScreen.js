@@ -31,7 +31,9 @@ type KeypadScreenProps = {
   suggestedWords: Array<string>,
 }
 
-type KeypadScreenState = {}
+type KeypadScreenState = {
+  message: string,
+}
 
 class KeypadScreen extends React.PureComponent<
   KeypadScreenProps,
@@ -41,19 +43,34 @@ class KeypadScreen extends React.PureComponent<
     header: null,
   })
 
+  state = {
+    message: "",
+  }
+
   handleKeypadChanged = numbers => {
     const { onGetSuggestionsRequest } = this.props
     onGetSuggestionsRequest(numbers)
   }
 
+  handleSuggestionPressed = suggestion => {
+    const { message } = this.state
+    this.setState({ message: `${message}${suggestion} ` })
+  }
+
   keyExtractor = word => word
 
-  renderSuggestion = suggestion => <Suggestion word={suggestion.item} />
+  renderSuggestion = suggestion => (
+    <Suggestion word={suggestion.item} onPress={this.handleSuggestionPressed} />
+  )
 
   render() {
     const { suggestedWords } = this.props
+    const { message } = this.state
     return (
       <SafeAreaView style={styles.container}>
+        <View>
+          <Text>{message}</Text>
+        </View>
         <View style={styles.suggestionsWrapper}>
           <FlatList
             data={suggestedWords}

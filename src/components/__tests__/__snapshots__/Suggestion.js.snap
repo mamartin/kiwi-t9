@@ -2,15 +2,28 @@
 
 exports[`Suggestion component renders with default props 1`] = `
 <View
+  accessible={true}
+  isTVSelectable={true}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
   style={
     Object {
-      "paddingRight": 30,
+      "display": "flex",
+      "height": 60,
+      "justifyContent": "center",
+      "marginRight": 30,
+      "opacity": 1,
     }
   }
 >
   <Text
     style={
       Object {
+        "color": "white",
         "fontSize": 30,
       }
     }
