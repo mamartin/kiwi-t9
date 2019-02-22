@@ -2,7 +2,6 @@ import { from } from "rxjs"
 import { filter, switchMap, flatMap, catchError } from "rxjs/operators"
 
 // api
-
 import { getSuggestions } from "../api/api"
 
 export const initialState = {
@@ -26,6 +25,10 @@ export const onGetSuggestionsFail = error => ({
   error,
 })
 
+export const onResetSuggestions = () => ({
+  type: "ON_RESET_SUGGESTIONS",
+})
+
 export const reducer = (state = initialState, action) => {
   switch (action.type) {
     case "ON_GET_SUGGESTION_REQUEST":
@@ -44,6 +47,11 @@ export const reducer = (state = initialState, action) => {
         ...state,
         loading: false,
         error: action.error,
+      }
+    case "ON_RESET_SUGGESTIONS":
+      return {
+        ...state,
+        suggestedWords: [],
       }
     default:
       return state

@@ -18,7 +18,7 @@ const blacklistFilter = createBlacklistFilter("auth", ["loading"])
 const persistConfig = {
   key: "root",
   storage,
-  blacklist: ["nav"],
+  blacklist: ["nav", "keypad"],
   transforms: [blacklistFilter],
 }
 

@@ -16,7 +16,10 @@ import { connect } from "react-redux"
 import { Keypad, Suggestion } from "../components"
 
 // actions
-import { onGetSuggestionsRequest } from "../redux/KeypadRedux"
+import {
+  onGetSuggestionsRequest,
+  onResetSuggestions,
+} from "../redux/KeypadRedux"
 
 // styles
 import Colors from "../themes/Colors"
@@ -48,6 +51,7 @@ const styles = StyleSheet.create({
 
 type KeypadScreenProps = {
   onGetSuggestionsRequest: string => null,
+  onResetSuggestions: () => null,
   suggestedWords: Array<string>,
 }
 
@@ -71,10 +75,9 @@ class KeypadScreen extends React.PureComponent<
 
   handleSuggestionPressed = (suggestion: string) => {
     const { message } = this.state
-    this.setState(
-      { message: `${message}${suggestion} `, numbers: "" },
-      () => this.props.onGetSuggestionsRequest(), // @TODO REMOVE extra request
-    )
+    const { onResetSuggestions } = this.props
+    this.setState({ message: `${message}${suggestion} `, numbers: "" })
+    onResetSuggestions()
   }
 
   handleKeypadButtonPressed = (number: string) => {
@@ -139,6 +142,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = {
   onGetSuggestionsRequest,
+  onResetSuggestions,
 }
 
 export default connect(
