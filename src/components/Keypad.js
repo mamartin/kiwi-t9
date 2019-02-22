@@ -31,9 +31,9 @@ const keypad = [
   { number: "7", letters: "pqrs" },
   { number: "8", letters: "tuv" },
   { number: "9", letters: "vwxy" },
-  { number: "*", letters: "" },
-  { number: "0", letters: "" },
-  { number: "#", letters: "" },
+  { number: "*", letters: "DELETE" },
+  { number: "0", letters: "REAL" },
+  { number: "#", letters: "RESET" },
 ]
 
 export default class Keypad extends React.PureComponent<

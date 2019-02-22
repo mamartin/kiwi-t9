@@ -4,9 +4,13 @@ import { View, Text } from "react-native"
 
 const styles = {
   suggestionWrapper: {
-    paddingRight: 30,
+    display: "flex",
+    marginRight: 30,
+    height: 60,
+    justifyContent: "center",
   },
   text: {
+    color: "white",
     fontSize: 30,
   },
 }
