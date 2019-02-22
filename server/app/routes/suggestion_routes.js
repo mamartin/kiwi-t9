@@ -15,7 +15,7 @@ module.exports = function(app) {
   app.get("/suggestions", (req, res) => {
     const numbers = req.query.numbers
 
-    if (!numbers) {
+    if (numbers === undefined) {
       return res.status(400).send("Numbers is a required parameter.")
     }
 

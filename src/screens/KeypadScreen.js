@@ -53,6 +53,7 @@ type KeypadScreenProps = {
 
 type KeypadScreenState = {
   message: string,
+  numbers: string,
 }
 
 class KeypadScreen extends React.PureComponent<
@@ -65,21 +66,45 @@ class KeypadScreen extends React.PureComponent<
 
   state = {
     message: "",
+    numbers: "",
   }
 
-  handleKeypadChanged = numbers => {
-    const { onGetSuggestionsRequest } = this.props
-    onGetSuggestionsRequest(numbers)
-  }
-
-  handleSuggestionPressed = suggestion => {
+  handleSuggestionPressed = (suggestion: string) => {
     const { message } = this.state
-    this.setState({ message: `${message}${suggestion} ` })
+    this.setState(
+      { message: `${message}${suggestion} `, numbers: "" },
+      () => this.props.onGetSuggestionsRequest(), // @TODO REMOVE extra request
+    )
   }
 
-  keyExtractor = word => word
+  handleKeypadButtonPressed = (number: string) => {
+    const { numbers } = this.state
+    const { onGetSuggestionsRequest } = this.props
+    let numbersResult = ""
 
-  renderSuggestion = suggestion => (
+    switch (number) {
+      case "1":
+        break
+      case "*":
+        numbersResult = numbers.slice(0, -1)
+        break
+      case "0":
+        // @TODO
+        break
+      case "#":
+        numbersResult = ""
+        break
+      default:
+        numbersResult = `${numbers}${number}`
+    }
+    this.setState({ numbers: numbersResult }, () => {
+      onGetSuggestionsRequest(numbersResult)
+    })
+  }
+
+  keyExtractor = (word: string) => word
+
+  renderSuggestion = (suggestion: { item: string }) => (
     <Suggestion word={suggestion.item} onPress={this.handleSuggestionPressed} />
   )
 
@@ -99,7 +124,10 @@ class KeypadScreen extends React.PureComponent<
             horizontal
           />
         </View>
-        <Keypad onChange={this.handleKeypadChanged} style={styles.keypad} />
+        <Keypad
+          onPress={this.handleKeypadButtonPressed}
+          style={styles.keypad}
+        />
       </SafeAreaView>
     )
   }

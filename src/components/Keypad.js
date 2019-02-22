@@ -14,7 +14,7 @@ const styles = {
 }
 
 type KeypadProps = {|
-  onChange: string => null,
+  onPress: string => null,
 |}
 
 type KeypadState = {
@@ -36,44 +36,15 @@ const keypad = [
   { number: "#", letters: "RESET" },
 ]
 
-export default class Keypad extends React.PureComponent<
-  KeypadProps,
-  KeypadState,
-> {
-  state = {
-    numbers: "",
-  }
-
-  handleButtonPressed = (number: string) => {
-    const { onChange } = this.props
-    const { numbers } = this.state
-    let numbersResult = ""
-
-    switch (number) {
-      case "1":
-        break
-      case "*":
-        numbersResult = numbers.slice(0, -1)
-        break
-      case "0":
-        // @TODO
-        break
-      case "#":
-        numbersResult = ""
-        break
-      default:
-        numbersResult = `${numbers}${number}`
-    }
-    this.setState({ numbers: numbersResult }, () => onChange(numbersResult))
-  }
-
+export default class Keypad extends React.PureComponent<KeypadProps> {
   render() {
+    const { onPress } = this.props
     return (
       <View style={styles.keypadWrapper}>
         {keypad.map(button => (
           <Button
             key={button.number}
-            onPress={() => this.handleButtonPressed(button.number)}
+            onPress={() => onPress(button.number)}
             number={button.number}
           >
             {button.letters}
