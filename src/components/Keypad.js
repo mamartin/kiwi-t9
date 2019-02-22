@@ -47,11 +47,24 @@ export default class Keypad extends React.PureComponent<
   handleButtonPressed = (number: string) => {
     const { onChange } = this.props
     const { numbers } = this.state
+    let numbersResult = ""
 
-    this.setState({ numbers: `${numbers}${number}` }, () => {
-      const { numbers } = this.state
-      onChange(numbers)
-    })
+    switch (number) {
+      case "1":
+        break
+      case "*":
+        numbersResult = numbers.slice(0, -1)
+        break
+      case "0":
+        // @TODO
+        break
+      case "#":
+        numbersResult = ""
+        break
+      default:
+        numbersResult = `${numbers}${number}`
+    }
+    this.setState({ numbers: numbersResult }, () => onChange(numbersResult))
   }
 
   render() {
