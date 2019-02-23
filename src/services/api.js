@@ -11,5 +11,9 @@ export const axios = axiosLib.create({
   },
 })
 
-export const getSuggestions = (numbers: string) =>
-  axios.get(`/suggestions?numbers=${numbers}`)
+export const getSuggestions = (numbers: string, realWordsOnly: boolean) =>
+  axios.get(
+    `/suggestions?numbers=${numbers}&realWordsOnly=${
+      realWordsOnly ? "true" : "false"
+    }`,
+  )

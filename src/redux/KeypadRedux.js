@@ -1,8 +1,9 @@
+// @flow
 import { from } from "rxjs"
 import { filter, switchMap, flatMap, catchError } from "rxjs/operators"
 
 // api
-import { getSuggestions } from "../api/api"
+import { getSuggestions } from "../services/api"
 
 export const initialState = {
   loading: false,
@@ -10,17 +11,21 @@ export const initialState = {
   suggestedWords: [],
 }
 
-export const onGetSuggestionsRequest = numbers => ({
+export const onGetSuggestionsRequest = (
+  numbers: string,
+  realWordsOnly: boolean,
+) => ({
   type: "ON_GET_SUGGESTIONS_REQUEST",
   numbers,
+  realWordsOnly,
 })
 
-export const onGetSuggestionsSuccess = suggestedWords => ({
+export const onGetSuggestionsSuccess = (suggestedWords: Array<string>) => ({
   type: "ON_GET_SUGGESTIONS_SUCCESS",
   suggestedWords,
 })
 
-export const onGetSuggestionsFail = error => ({
+export const onGetSuggestionsFail = (error: any) => ({
   type: "ON_GET_SUGGESTIONS_FAIL",
   error,
 })
@@ -62,7 +67,7 @@ const suggestionsEpic = action$ =>
   action$.pipe(
     filter(action => action.type === "ON_GET_SUGGESTIONS_REQUEST"),
     switchMap(action =>
-      from(getSuggestions(action.numbers)).pipe(
+      from(getSuggestions(action.numbers, action.realWordsOnly)).pipe(
         flatMap(response => {
           return from([onGetSuggestionsSuccess(response.data.words)])
         }),

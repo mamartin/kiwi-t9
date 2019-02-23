@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
 })
 
 type KeypadScreenProps = {
-  onGetSuggestionsRequest: string => null,
+  onGetSuggestionsRequest: (string, boolean) => null,
   onResetSuggestions: () => null,
   suggestedWords: Array<string>,
 }
@@ -58,6 +58,7 @@ type KeypadScreenProps = {
 type KeypadScreenState = {
   message: string,
   numbers: string,
+  realWordsOnly: boolean,
 }
 
 class KeypadScreen extends React.PureComponent<
@@ -71,6 +72,7 @@ class KeypadScreen extends React.PureComponent<
   state = {
     message: "",
     numbers: "",
+    realWordsOnly: false,
   }
 
   handleSuggestionPressed = (suggestion: string) => {
@@ -81,9 +83,10 @@ class KeypadScreen extends React.PureComponent<
   }
 
   handleKeypadButtonPressed = (number: string) => {
-    const { numbers } = this.state
+    const { numbers, realWordsOnly } = this.state
     const { onGetSuggestionsRequest } = this.props
-    let numbersResult = ""
+    let numbersResult = numbers
+    let realWordsOnlyChanged = realWordsOnly
 
     switch (number) {
       case "1":
@@ -92,7 +95,7 @@ class KeypadScreen extends React.PureComponent<
         numbersResult = numbers.slice(0, -1)
         break
       case "0":
-        // @TODO
+        realWordsOnlyChanged = !realWordsOnly
         break
       case "#":
         numbersResult = ""
@@ -100,9 +103,12 @@ class KeypadScreen extends React.PureComponent<
       default:
         numbersResult = `${numbers}${number}`
     }
-    this.setState({ numbers: numbersResult }, () => {
-      onGetSuggestionsRequest(numbersResult)
-    })
+    this.setState(
+      { numbers: numbersResult, realWordsOnly: realWordsOnlyChanged },
+      () => {
+        onGetSuggestionsRequest(numbersResult, realWordsOnlyChanged)
+      },
+    )
   }
 
   keyExtractor = (word: string) => word

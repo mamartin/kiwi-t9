@@ -17,10 +17,6 @@ type KeypadProps = {|
   onPress: string => null,
 |}
 
-type KeypadState = {
-  numbers: string,
-}
-
 const keypad = [
   { number: "1", letters: "" },
   { number: "2", letters: "abc" },
