@@ -10,3 +10,5 @@ require("./app/routes")(app, {});
 app.listen(port, () => {
   console.log("We are live on " + port);
 });
+
+module.exports = app;

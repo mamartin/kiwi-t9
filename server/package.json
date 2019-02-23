@@ -4,16 +4,23 @@
   "description": "node server",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon index.js"
+    "dev": "nodemon index.js",
+    "test": "mocha app/tests/*.js"
   },
   "author": "Martin Doubek",
   "license": "ISC",
   "dependencies": {
+    "babel-cli": "^6.26.0",
     "body-parser": "^1.18.3",
+    "chai": "*",
+    "chai-http": "^4.0.0",
     "express": "^4.16.4",
-    "mongodb": "^2.2.16"
+    "mocha": "*"
   },
   "devDependencies": {
+    "@babel/core": "^7.3.3",
+    "@babel/preset-env": "^7.3.1",
+    "gulp-babel": "^8.0.0",
     "nodemon": "^1.18.10"
   }
 }
