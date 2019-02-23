@@ -85,28 +85,28 @@ class KeypadScreen extends React.PureComponent<
   handleKeypadButtonPressed = (number: string) => {
     const { numbers, realWordsOnly } = this.state
     const { onGetSuggestionsRequest } = this.props
-    let numbersResult = numbers
+    let numbersChanged = numbers
     let realWordsOnlyChanged = realWordsOnly
 
     switch (number) {
       case "1":
         break
       case "*":
-        numbersResult = numbers.slice(0, -1)
+        numbersChanged = numbers.slice(0, -1)
         break
       case "0":
         realWordsOnlyChanged = !realWordsOnly
         break
       case "#":
-        numbersResult = ""
+        numbersChanged = ""
         break
       default:
-        numbersResult = `${numbers}${number}`
+        numbersChanged = `${numbers}${number}`
     }
     this.setState(
-      { numbers: numbersResult, realWordsOnly: realWordsOnlyChanged },
+      { numbers: numbersChanged, realWordsOnly: realWordsOnlyChanged },
       () => {
-        onGetSuggestionsRequest(numbersResult, realWordsOnlyChanged)
+        onGetSuggestionsRequest(numbersChanged, realWordsOnlyChanged)
       },
     )
   }
