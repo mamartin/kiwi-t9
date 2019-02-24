@@ -21,6 +21,9 @@ import {
   onResetSuggestions,
 } from "../redux/KeypadRedux"
 
+// types
+import type { State } from "../types"
+
 // styles
 import Colors from "../themes/Colors"
 
@@ -142,7 +145,7 @@ class KeypadScreen extends React.PureComponent<
   }
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state: State) => ({
   suggestedWords: state.keypad.suggestedWords,
 })
 

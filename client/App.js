@@ -6,11 +6,8 @@ import { Provider } from "react-redux"
 import { PersistGate } from "redux-persist/integration/react"
 
 // initialization
-import configureLocalization from "./src/services/configureLocalization"
 import initStore from "./src/services/configureRedux"
 import AppWithNavigationState from "./src/services/configureNavigation"
-
-configureLocalization()
 
 const { store, persistor } = initStore()
 

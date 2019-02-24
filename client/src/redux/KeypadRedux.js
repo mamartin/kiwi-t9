@@ -5,7 +5,10 @@ import { filter, switchMap, flatMap, catchError } from "rxjs/operators"
 // api
 import { getSuggestions } from "../services/api"
 
-export const initialState = {
+// types
+import type { Action, KeypadState } from "../types"
+
+export const initialState: KeypadState = {
   loading: false,
   error: null,
   suggestedWords: [],
@@ -34,7 +37,7 @@ export const onResetSuggestions = () => ({
   type: "ON_RESET_SUGGESTIONS",
 })
 
-export const reducer = (state = initialState, action) => {
+export const reducer = (state: KeypadState = initialState, action: Action) => {
   switch (action.type) {
     case "ON_GET_SUGGESTION_REQUEST":
       return {
@@ -63,7 +66,7 @@ export const reducer = (state = initialState, action) => {
   }
 }
 
-const suggestionsEpic = action$ =>
+const suggestionsEpic = (action$: any) =>
   action$.pipe(
     filter(action => action.type === "ON_GET_SUGGESTIONS_REQUEST"),
     switchMap(action =>

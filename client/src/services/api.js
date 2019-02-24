@@ -2,6 +2,9 @@
 import axiosLib from "axios"
 import config from "../config/appConfig"
 
+// types
+import type { GetSuggestionsResponse } from "../types"
+
 export const axios = axiosLib.create({
   baseURL: config.baseUrl,
   timeout: 10000,
@@ -11,7 +14,10 @@ export const axios = axiosLib.create({
   },
 })
 
-export const getSuggestions = (numbers: string, realWordsOnly: boolean) =>
+export const getSuggestions = (
+  numbers: string,
+  realWordsOnly: boolean,
+): GetSuggestionsResponse =>
   axios.get(
     `/suggestions?numbers=${numbers}&realWordsOnly=${
       realWordsOnly ? "true" : "false"
