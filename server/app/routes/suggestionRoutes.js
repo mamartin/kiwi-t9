@@ -15,13 +15,11 @@ module.exports = function suggestions(app) {
         );
     }
 
-    // @TODO validate
-
     const words =
       realWordsOnly === "true"
         ? numbersToRealWords(numbers)
         : numbersToFakeWords(numbers);
 
-    return res.send({ numbers: req.body.numbers, words });
+    return res.send(words);
   });
 };

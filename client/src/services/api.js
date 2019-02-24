@@ -1,12 +1,12 @@
 // @flow
 import axiosLib from "axios"
-import config from "../config/appConfig"
+import appConfig from "../config/appConfig"
 
 // types
 import type { GetSuggestionsResponse } from "../types"
 
 export const axios = axiosLib.create({
-  baseURL: config.baseUrl,
+  baseURL: appConfig.baseUrl,
   timeout: 10000,
   headers: {
     "Content-Type": "application/json",

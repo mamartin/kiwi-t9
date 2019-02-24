@@ -114,7 +114,7 @@ class KeypadScreen extends React.PureComponent<
     )
   }
 
-  keyExtractor = (word: string) => word
+  suggestionsKeyExtractor = (word: string) => word
 
   renderSuggestion = (suggestion: { item: string }) => (
     <Suggestion word={suggestion.item} onPress={this.handleSuggestionPressed} />
@@ -132,7 +132,7 @@ class KeypadScreen extends React.PureComponent<
           <FlatList
             data={suggestedWords}
             renderItem={this.renderSuggestion}
-            keyExtractor={this.keyExtractor}
+            keyExtractor={this.suggestionsKeyExtractor}
             horizontal
           />
         </View>

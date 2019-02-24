@@ -72,7 +72,7 @@ const suggestionsEpic = (action$: any) =>
     switchMap(action =>
       from(getSuggestions(action.numbers, action.realWordsOnly)).pipe(
         flatMap(response => {
-          return from([onGetSuggestionsSuccess(response.data.words)])
+          return from([onGetSuggestionsSuccess(response.data)])
         }),
         catchError(e => from([onGetSuggestionsFail(e)])),
       ),

@@ -10,7 +10,7 @@ React Native mobile app and Node.js server for T9 text suggestion.
 
 ```
 cd server
-npm  install
+npm install
 npm run dev
 ```
 
@@ -34,9 +34,7 @@ npm run dev
 **Code** 200
 
 ```js
-{
-  suggestedWords: ["ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"];
-}
+["ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"]
 ```
 
 `[GET] /suggestions?numbers=43556&realWordsOnly=true`
@@ -44,9 +42,7 @@ npm run dev
 **Code** 200
 
 ```js
-{
-  suggestedWords: ["hello"];
-}
+["hello"]
 ```
 
 `[GET] /suggestions`
@@ -55,7 +51,6 @@ npm run dev
 
 ```
 Numbers is a required parameter.
-
 ```
 
 `[GET] /suggestions?numbers=222222222222222222`
@@ -63,12 +58,13 @@ Numbers is a required parameter.
 **Code** 400
 
 ```
-  Numbers numbers can only contain digits 2-9, maximum length is 10.
+Numbers numbers can only contain digits 2-9, maximum length is 10.
 ```
 
 ### Test server
 
 ```
+cd server
 npm run test
 ```
 
@@ -80,6 +76,13 @@ npm run test
 cd client
 yarn
 react-native run-ios
+```
+
+### Test client
+
+```
+cd client
+yarn test
 ```
 
 ## Possible future improvements

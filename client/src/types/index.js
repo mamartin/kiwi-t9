@@ -5,9 +5,8 @@ export type Config = {
   baseUrl: string,
 }
 
-export type GetSuggestionsResponseData = {
-  words: Array<string>,
-}
+export type GetSuggestionsResponseData = Array<string>
+
 export type GetSuggestionsResponse = AxiosPromise<GetSuggestionsResponseData>
 
 export type Action =

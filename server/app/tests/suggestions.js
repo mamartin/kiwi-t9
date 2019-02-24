@@ -12,9 +12,7 @@ describe("t9 word suggestions", () => {
       .get("/suggestions?numbers=43556&realWordsOnly=true")
       .end((err, res) => {
         res.should.have.status(200);
-        res.body.should.be.eql({
-          words: ["hello"]
-        });
+        res.body.should.be.eql(["hello"]);
         done();
       });
   });
@@ -25,9 +23,17 @@ describe("t9 word suggestions", () => {
       .get("/suggestions?numbers=23")
       .end((err, res) => {
         res.should.have.status(200);
-        res.body.should.be.eql({
-          words: ["ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"]
-        });
+        res.body.should.be.eql([
+          "ad",
+          "ae",
+          "af",
+          "bd",
+          "be",
+          "bf",
+          "cd",
+          "ce",
+          "cf"
+        ]);
         done();
       });
   });
