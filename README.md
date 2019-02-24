@@ -16,7 +16,55 @@ npm run dev
 
 ### Resource description
 
-@TODO
+#### Suggestions
+
+```
+[GET] /suggestions
+```
+
+##### Parameters
+
+- **numbers** _(required)_ — numbers to be converted to words suggestion
+- **realWordsOnly** — if true, server will return only real words based on wordlist
+
+###### Responses
+
+`[GET] /suggestions?numbers=23`
+
+**Code** 200
+
+```js
+{
+  suggestedWords: ["ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"];
+}
+```
+
+`[GET] /suggestions?numbers=43556&realWordsOnly=true`
+
+**Code** 200
+
+```js
+{
+  suggestedWords: ["hello"];
+}
+```
+
+`[GET] /suggestions`
+
+**Code** 400
+
+```
+Numbers is a required parameter.
+
+```
+
+`[GET] /suggestions?numbers=222222222222222222`
+
+**Code** 400
+
+```
+  Numbers numbers can only contain digits 2-9, maximum length is 10.
+```
 
 ### Test server
 
